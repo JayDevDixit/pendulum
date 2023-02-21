@@ -1,0 +1,95 @@
+:root{
+    --move:calc(60vw - 3vh)
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:url(galexy.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#plank{
+    width: 60vw;
+    height: 1vh;
+    background-color: white;
+    border-radius: 30vh;
+
+    animation-name: plank_up_down ;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+}
+#ball{
+    width: 10vh;
+    height: 10vh;
+    background: linear-gradient(
+        60deg,
+        #f79533,
+        #f37055,
+        #ef4e7b,
+        #a166ab,
+        #5073b8,
+        #1098ad,
+        #07b39b,
+        #6fba82
+      );
+    border-radius: 50%;
+
+    position: relative;
+    top: -11vh;
+    left: -3vw;
+    /* transform: translate(54vw); */
+
+    animation-name: ball_move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    
+}
+#ball::before{
+    content: '';
+    width: max(1vw,1vh);
+    height: max(1vw,1vh);
+    border-radius: 50%;
+    background-color: white;
+    display: block;
+    position: relative;
+    left: 4vh;
+    top: 0.5vh;
+}
+
+#plank::before{
+    content: '';
+    width: 1vh;
+    height: 1vh;
+    border-radius: 50%;
+    background-color: black;
+    display: block;
+    position: relative;
+    margin: auto;
+
+}
+
+
+@keyframes plank_up_down {
+   from{
+    transform: rotate(30deg);
+   }
+   to{
+    transform: rotate(-30deg);
+   }
+}
+
+@keyframes ball_move {
+    100%{
+        transform: translate(var(--move)) rotate(720deg);
+    }
+}
